@@ -5,6 +5,10 @@ const soundWinner = new Audio("sounds/winner.wav");
 const soundSeconds = new Audio("sounds/second.wav");
 const soundHardTime = new Audio("sounds/hardtime.wav");
 const soundMidTime = new Audio("sounds/midtime.wav");
+const music = new Audio('sounds/music.mp3');
+
+
+
 // inicialización de variables
 let tarjetasDestapadas = 0;
 let tarjeta1 = null;
@@ -17,7 +21,6 @@ let temporizador = false;
 let timer = 60;
 let timerInicial = timer;
 let tiempoRegresivoId = null;
-
 
 
 // Apuntando a documento HTML
@@ -120,6 +123,8 @@ const destapar = (id) => {
             if (aciertos == 8) {
                 clearInterval(tiempoRegresivoId);
                 soundWinner.play();
+                music.play()
+
                 mostrarAciertos.innerHTML = "Aciertos: " + aciertos + "😱";
                 mostrarTiempo.innerHTML = "terminaste en " + (timerInicial - timer) + "segundos";
                 mostrarMovimientos.innerHTML = " Movimientos: " + movimientos + "🤟😎";
@@ -147,3 +152,4 @@ const destapar = (id) => {
 
     }
 }
+
